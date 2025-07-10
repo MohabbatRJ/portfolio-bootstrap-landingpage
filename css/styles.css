@@ -1,0 +1,150 @@
+:root {
+    --primary: #0f172a;
+    /* Slate-900 */
+    --secondary: #f97316;
+    /* Orange-500 */
+    --radius-lg: 1rem;
+    --radius-profile: 5vw;
+    --text-gradient: linear-gradient(315deg, var(--primary), var(--secondary));
+    --bg-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+
+/* Reset & Base Styles */
+:where(*, *::before, *::after) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    background-color: #fff;
+}
+
+/* Utility Classes */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 5vw, 1.5rem);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--secondary) 80%, var(--primary));
+}
+
+.text-primary {
+    color: color-mix(in srgb, var(--secondary) 80%, var(--primary)) !important;
+}
+
+.bg-gradient-primary-to-secondary {
+    background: var(--bg-gradient);
+}
+
+.navbar-toggler {
+    border: none;
+    background: var(--bg-gradient);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    transform: scale(1.05);
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rounded-4 {
+    border-radius: var(--radius-lg) !important;
+}
+
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(2.5rem, 10vw, 3rem);
+    height: clamp(2.5rem, 10vw, 3rem);
+    font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* Profile Block */
+.profile {
+    position: relative;
+    width: clamp(15rem, 75vw, 40rem);
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-profile);
+    margin-inline: auto;
+    margin-top: 5vw;
+    container-type: inline-size;
+}
+
+.profile-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,5.5%);
+    height: clamp(15rem, 80vw, 45rem);
+    object-fit: contain;
+    width: auto;
+    max-width: 100%;
+}
+
+/* Dot Styles */
+.profile :is(.dots-1, .dots-2, .dots-3, .dots-4) {
+    position: absolute;
+    width: clamp(0.75rem, 3vw, 2rem);
+}
+
+.dots-1 {
+    right: 2.5cqw;
+    top: 5cqw;
+}
+
+.dots-2 {
+    right: -5cqw;
+    top: 7cqw;
+}
+
+.dots-3 {
+    left: 2.5cqw;
+    bottom: 7cqw;
+}
+
+.dots-4 {
+    left: -5cqw;
+    bottom: 5cqw;
+}
+
+.dots-1 svg,
+.dots-3 svg {
+    fill: white;
+}
+
+.dots-2 svg,
+.dots-4 svg {
+    fill: var(--primary);
+}
